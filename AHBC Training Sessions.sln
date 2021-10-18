@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31613.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AHBC Week 1", "AHBC Day 1\AHBC Week 1.csproj", "{2EC8C9CE-412B-4635-9E1C-0BA9550B0426}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AHBC Week 2", "AHBC Day 2\AHBC Week 2.csproj", "{DD49925C-C1BF-4786-ACA3-EC22DD0BFC50}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2EC8C9CE-412B-4635-9E1C-0BA9550B0426}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EC8C9CE-412B-4635-9E1C-0BA9550B0426}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2EC8C9CE-412B-4635-9E1C-0BA9550B0426}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2EC8C9CE-412B-4635-9E1C-0BA9550B0426}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD49925C-C1BF-4786-ACA3-EC22DD0BFC50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD49925C-C1BF-4786-ACA3-EC22DD0BFC50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD49925C-C1BF-4786-ACA3-EC22DD0BFC50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD49925C-C1BF-4786-ACA3-EC22DD0BFC50}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FF3D7016-6AD6-45E3-98E8-E7E97B886ADA}
+	EndGlobalSection
+EndGlobal
