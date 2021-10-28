@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Text;
 
 namespace AHBC_Week_3
@@ -7,11 +9,264 @@ namespace AHBC_Week_3
     {
         static void Main(string[] args)
         {
+
+            WorkingWithDictionaries();
+
+            Environment.Exit(0);
+
+            string[] weapons = new string[] { "sword", "dagger", "bow", "wand" };
+            string[] playerInventory = new string[10];
+            playerInventory[0] = "health potion"; // First element
+            playerInventory[9] = "rune of revival"; // Last element
+
+            // ArrayList came between Arrays and Lists (not used often)
+            ArrayList myStuff = new ArrayList();
+
+            // Can accept any type
+            myStuff.Add("breakfast");
+            myStuff.Add(7);
+            myStuff.Add(true);
+
+            int CharacterAge = 12 + (int) myStuff[1];
+            bool isValid = (bool)myStuff[2];
+
+            // Lists
+            List<string> weaponsList = new List<string>() { "sword", "dagger", "bow", "wand" };
+            List<string> potions = new List<string>() { "healing potion", "water breathing potion" };
+            List<string> enhancedInventory = new List<string>();
+            List<int> damageIndicators = new List<int> { 20, 25, 28, 45 };
+
+            // Add value to element
+            playerInventory[0] = "health potion"; // First Element
+            // Add value to List
+            enhancedInventory.Add("magic potion"); // First Elemnent
+            enhancedInventory.AddRange(weaponsList); // Add List to a list (As long as their of the same type)
+            enhancedInventory.AddRange(potions); // Add second list to a list
+            enhancedInventory.AddRange(weapons); // Add Array to a list
+
+            // Add int to a string list
+            enhancedInventory.Add(CharacterAge.ToString());
+
+            // Add list of integers to a list of strings
+            for (int i = 0; i < damageIndicators.Count; i++)
+            {
+                enhancedInventory.Add(damageIndicators[i].ToString());
+            }
+            // enhancedInventory.AddRange(damageIndicators); // Will not work
+
+            // Adding strings to a list of integers
+            List<int> enemyCount = new List<int>();
+
+            //bool doAddMore = true;
+            //while (doAddMore) // same as (doAddMore == true)
+            //{
+            //    Console.Write("How many enemies: ");
+            //    enemyCount.Add(int.Parse(Console.ReadLine()));
+            //    Console.Write("more? ");
+            //    if (Console.ReadLine().ToLower().Trim() == "no")
+            //    {
+            //        doAddMore = false;
+            //    }
+            //}
+
+            Random random = new Random();
+            for (int i = 0; i < 10; i++)
+            {
+                enhancedInventory.Add(random.Next(1, 9).ToString());
+            }
+
+            List<string> meals = new List<string>();
+            bool doContinue = true;
+
+            while (doContinue == true)
+            {
+                Console.WriteLine("Add a meal: ");
+                meals.Add(Console.ReadLine());
+                Console.WriteLine("another");
+                if (Console.ReadLine().ToLower().Trim() == "no")
+                {
+                    doContinue = false;
+                }
+
+                // Creates a size limit to the list
+                if (meals.Count > 300)
+                {
+                    Console.WriteLine("No more allowed.");
+                    doContinue = false;
+                }
+            }
+
+            List<int> randomNumbers = new List<int>();
+            doContinue = true;
+            random = new Random();
+            while (doContinue)
+            {
+                randomNumbers.Add(random.Next(0, 2000));
+                if (randomNumbers.Count == 100)
+                {
+                    break;
+                }
+            }
+
+            // Better way to add 100 random numbers
+            for (int i = 0; i < 100; i++)
+            {
+                randomNumbers.Add(random.Next(0, 2000));
+            }
+            enhancedInventory.Add("dagger");
+            
+            
+
+            try
+            {
+                Console.WriteLine(enhancedInventory[0]); // Throws error when no elements exist
+            }
+            catch (ArgumentOutOfRangeException ex)
+            {
+                Console.WriteLine(weaponsList[0]);
+                
+            }
+
             // LessonWork();
             // InviteLunchBuddies();
             // GetAverageScore();
             // PracticeInterviewQuestions();
+            // RandomDiscussion();
 
+            enhancedInventory.Insert(10, "wood club");
+
+            
+            damageIndicators.Remove(12);
+            enhancedInventory.RemoveAt(10); // will not remove the "wood club" because we already removed "dagger", shifting elements left
+            int midpoint = (int)(enhancedInventory.Count) / 2 - 1;
+            enhancedInventory.RemoveRange(midpoint, enhancedInventory.Count - midpoint); // Don't hardcode numbers here
+
+            bool hasDagger = enhancedInventory.Contains("dagger");
+
+            if (hasDagger)
+            {
+                int daggerLocation = enhancedInventory.IndexOf("dagger");
+
+                int lastDaggerLocation = enhancedInventory.LastIndexOf("dagger");
+
+                if (daggerLocation != lastDaggerLocation)
+                {
+                    Console.WriteLine("You have more than one dagger.");
+                }
+
+                Console.WriteLine($"The dagger is the {daggerLocation + 1} item in your inventory.");
+            }
+
+            // Removing all daggers
+            while (hasDagger)
+            {
+                enhancedInventory.Remove("dagger"); // Most common one
+                hasDagger = enhancedInventory.Contains("dagger");
+            }
+
+            foreach (string inventoryItem in enhancedInventory)
+            {
+                Console.WriteLine($"You have a {inventoryItem} in your inventory.");
+                // enhancedInventory.Add("new thing"); // Can't add when using foreach
+            }
+
+            enhancedInventory.Clear(); // Clears the inventory
+
+            Console.ReadKey();
+        }
+
+        public static bool IsEvenNumber(int number)
+        {
+            if (number % 2 == 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public static void WorkingWithDictionaries()
+        {
+            List<string> tempList = new List<string>();
+            tempList.Add("this");
+            tempList.Add("that");
+
+            Dictionary<string, string> dictionary = new Dictionary<string, string>();
+            dictionary.Add("sad", "not happy, gloomy feelings");
+            dictionary.Add("cat", "an annoying animal that should never be in my house.");
+            // dictionary.Add("cat", "a fun animal"); // Can't have duplicate keys (In this case, the duplicate key is "cat")
+            dictionary.Add("dog", "a fun animal");
+            dictionary.Add("ferret", "a fun animal");
+
+            Dictionary<int, bool> drinkingAgeVerification = new Dictionary<int, bool>();
+            drinkingAgeVerification.Add(18, false);
+            drinkingAgeVerification.Add(21, true);
+            drinkingAgeVerification.Add(5, false);
+            drinkingAgeVerification.Add(7 - 2, IsEvenNumber(2));
+
+            bool wasAddSuccessfull = drinkingAgeVerification.TryAdd(18, true); // If true, add to the dictionary
+            if (wasAddSuccessfull == false)
+            {
+                Console.WriteLine("Did not add.");
+            }
+
+            // More than likely will see it this way
+            int userInt = 25;
+            bool userBool = true;
+            bool doesExist = drinkingAgeVerification.ContainsKey(userInt);
+            if (doesExist)
+            {
+                Console.WriteLine("That already exists.");
+            }
+            else
+            {
+                drinkingAgeVerification.Add(userInt, userBool);
+            }
+
+            // KeyValuePair<int, bool> newEntry = new KeyValuePair<int, bool>(19, true);
+
+            Dictionary<string, string> meals = new Dictionary<string, string>();
+            meals.Add("breakfast", "");
+            meals.Add("lunch", "");
+            meals.Add("dinner", "");
+
+            var mealKeys = meals.Keys;
+
+            foreach (var key in mealKeys)
+            {
+                Console.WriteLine($"What did you have for {key}?");
+                string userInput = Console.ReadLine();
+                meals[key] = userInput;
+            }
+
+            // This code cannot be done. Use the code above
+            //foreach (var meal in meals)
+            //{
+            //    Console.WriteLine($"What did you have for {meal.Key}?");
+            //    string userInput = Console.ReadLine();
+            //    meal.Value = userInput;
+            //}
+
+            Console.ReadKey();
+        }
+
+        public static void UserReference()
+        {
+            string userName = "Steve";
+            Console.WriteLine(userName);
+            ChangeUserName(ref userName);
+            Console.WriteLine(userName);
+        }
+
+        public static void ChangeUserName(ref string name)
+        {
+            name = "Tim";
+        }
+
+        public static void RandomDiscussion()
+        {
             Random random = new Random();
             int userInput = 12;
             int dieOne = random.Next(1, userInput + 1);
@@ -26,8 +281,6 @@ namespace AHBC_Week_3
             //    int number = random.Next(1, 11); // Random number between 1 and 10
             //    Console.WriteLine($"{i+1}: {number}");
             //}
-
-            Console.ReadKey();
         }
 
         public static void PracticeInterviewQuestions()
@@ -101,6 +354,8 @@ namespace AHBC_Week_3
             return term;
         }
 
+        // This techincally does two things.
+        // Change to a double, return a double.
         public static void GetAverageScore()
         {
             int[] scores = new int[] { 98, 87, 98, 67, 56, 74, 83 };
