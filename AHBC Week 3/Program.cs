@@ -12,6 +12,8 @@ namespace AHBC_Week_3
 
             WorkingWithDictionaries();
 
+            // LessonWork();
+
             Environment.Exit(0);
 
             string[] weapons = new string[] { "sword", "dagger", "bow", "wand" };
@@ -196,9 +198,59 @@ namespace AHBC_Week_3
             Dictionary<string, string> dictionary = new Dictionary<string, string>();
             dictionary.Add("sad", "not happy, gloomy feelings");
             dictionary.Add("cat", "an annoying animal that should never be in my house.");
+            dictionary.Add("cats", "many annoying animals that should never be in the house.");
             // dictionary.Add("cat", "a fun animal"); // Can't have duplicate keys (In this case, the duplicate key is "cat")
             dictionary.Add("dog", "a fun animal");
             dictionary.Add("ferret", "a fun animal");
+
+            dictionary.Remove("cats");
+
+            Dictionary<int, string> shoppingCart = new Dictionary<int, string>();
+            shoppingCart.Add(12342, "Fancy Blue Shoes");
+            shoppingCart.Add(12534, "Ripped Jeans");
+
+            shoppingCart.Remove(12534);
+
+            string itemToRemove = Console.ReadLine();
+            itemToRemove = "Ripped Jeans";
+
+            // Does the item exist
+            bool doesItemExist = shoppingCart.ContainsValue(itemToRemove);
+            int itemsKey = -1;
+            // Get the key for the provided value
+            foreach (var item in shoppingCart)
+            {
+                if (item.Value == itemToRemove)
+                {
+                    itemsKey = item.Key;
+                    break; // So it won't loop through the rest if you've already found it
+                }
+            }
+
+            shoppingCart.Remove(itemsKey);
+            shoppingCart.Clear(); // Gets rid of all items
+
+            Dictionary<string, List<string>> learnerFavoriteTopics = new Dictionary<string, List<string>>();
+
+            List<string> stevesList = new List<string>() { "gaming", "camping", "biking" };
+            List<string> aprilsList = new List<string>() { "reading", "hiking", "running", "writing" };
+            List<string> kalindisList = new List<string>() { "emotions", "reptiles" };
+
+            learnerFavoriteTopics.Add("steve", stevesList);
+            learnerFavoriteTopics.Add("april", aprilsList);
+            learnerFavoriteTopics.Add("kalindi", kalindisList);
+
+            foreach (var learnerList in learnerFavoriteTopics)
+            {
+                Console.WriteLine($"The list of topics to talk to {learnerList.Key} about: ");
+                foreach (string topic in learnerList.Value)
+                {
+                    Console.WriteLine(topic);
+                }
+            }
+
+            Console.ReadKey();
+
 
             Dictionary<int, bool> drinkingAgeVerification = new Dictionary<int, bool>();
             drinkingAgeVerification.Add(18, false);
@@ -215,6 +267,8 @@ namespace AHBC_Week_3
             // More than likely will see it this way
             int userInt = 25;
             bool userBool = true;
+            bool doesTextExist = dictionary.ContainsValue("a fun animal");
+
             bool doesExist = drinkingAgeVerification.ContainsKey(userInt);
             if (doesExist)
             {
@@ -255,6 +309,8 @@ namespace AHBC_Week_3
         public static void UserReference()
         {
             string userName = "Steve";
+            string updatedName;
+            CreateNewUserName(userName, out updatedName);
             Console.WriteLine(userName);
             ChangeUserName(ref userName);
             Console.WriteLine(userName);
@@ -263,6 +319,11 @@ namespace AHBC_Week_3
         public static void ChangeUserName(ref string name)
         {
             name = "Tim";
+        }
+
+        public static void CreateNewUserName(string name, out string newName)
+        {
+            newName = name + " Awesome";
         }
 
         public static void RandomDiscussion()
@@ -476,20 +537,58 @@ namespace AHBC_Week_3
             }
 
             // string[] healthyMeals = new string[5];
-            string[] healthyMeals = new string[] { "bread", "milk", "butter", "soda", "cheese" };
-            // What array do you want to copy into and what element do you want to start with
-            meals.CopyTo(healthyMeals, 0); // This will override the first 3 elements.
+            List<string> groceryList = new List<string> { "bread", "milk", "butter", "soda", "cheese" };
 
-            /*
-            // This will replace the last 2 elements
-            meals.CopyTo(healthyMeals, 3);
+            groceryList.Add("ice cream");
+            groceryList.Insert(0, "pop tarts");
 
-            healthyMeals[3] = "ice cream";
-            healthyMeals[4] = "pop tarts";
-            */
+            bool addMore = true;
+            while (addMore)
+            {
+                Console.Write("add to your list: ");
+                groceryList.Add(Console.ReadLine());
+                Console.WriteLine("add another?");
+                if (Console.ReadLine().ToLower().Trim() == "no")
+                {
+                    addMore = false;
+                }
+            }
+
+            Console.Clear();
+            Console.WriteLine("Your grocery list");
+            foreach (string groceryItem in groceryList)
+            {
+                Console.WriteLine(groceryItem);
+            }
+
+            Console.ReadKey();
+            
 
             // This will give the default values because the arrays are empty
             // Console.WriteLine($"name is {names[0]}, grade is {grades[0]}, answers are {answers[0]}");
+        }
+
+        static void WorkingWithStacksAndQueues()
+        {
+            Stack<string> deckOfCards = new Stack<string>(); // LIFO - Last in First Out
+            deckOfCards.Push("ace of spades");
+            deckOfCards.Push("two of hearts");
+
+            Console.WriteLine(deckOfCards.Peek()); // Display the two of hearts without removing it.
+            Console.WriteLine(deckOfCards.Pop()); // This will show the two of hearts and pop it off.
+            Console.WriteLine(deckOfCards.Pop()); // This will show the ace of spades and pop it off
+
+            Queue<string> onHoldCalls = new Queue<string>(); // FIFO - First in First Out
+            onHoldCalls.Enqueue("Steve's grandma");
+            onHoldCalls.Enqueue("Steve");
+            onHoldCalls.Enqueue("Brian");
+
+            Console.WriteLine(onHoldCalls.Dequeue()); // Steve's grandma <-- takes this off
+            Console.WriteLine(onHoldCalls.Peek()); // Looks at "Steve" without removing it
+            Console.WriteLine(onHoldCalls.Dequeue()); // Steve
+            Console.WriteLine(onHoldCalls.Dequeue()); // Brian
+
+
         }
     }
 }
