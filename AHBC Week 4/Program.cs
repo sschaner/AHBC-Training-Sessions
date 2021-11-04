@@ -9,11 +9,60 @@ namespace AhbcWeekFour
     {
         static void Main(string[] args)
         {
-            WorkWithRegEx();
+            
+            
             Console.ReadKey();
+            WorkWithClasses();
+
+            WorkWithRegEx();
             WorkWithEnums();
             WorkWithLINQ();
             WorkWithLambda();
+
+            int firstInput = int.Parse(Console.ReadLine());
+            int secondInput = int.Parse(Console.ReadLine());
+            int calculationAnswer;
+            calculationAnswer = CalculateSum(firstInput, secondInput);
+
+            calculationAnswer = Calculator.AddTwoNumbers(firstInput, secondInput);
+        }
+
+        public static int CalculateSum(int firstNumber, int secondNumber)
+        {
+            int answer = firstNumber + secondNumber;
+            return answer;
+        }
+
+        public static void WorkWithClasses()
+        {
+            string message = "";
+            Book currentBook = new Book("Hitchikers Guide to the Galaxy", "Funny books about space travel", 400);
+            // currentBook.title = "Hitchikers Guide to the Galaxy";
+            // currentBook.authors.Add("Douglas Adams");
+            message = currentBook.AddAuthor("Douglas Adams");
+            Console.WriteLine(message);
+            currentBook.CopyrightDate = DateTime.Parse("01/01/1980");
+
+            List<Book> hitchhikersSeries = new List<Book>();
+            // Create the book
+            Book bookOne = new Book("Hitchikers Guide to the Galaxy", "Funny books about space travel", 400);
+            // bookOne.title = "Hitchikers Guide to the Galaxy";
+            // bookOne.authors.Add("Douglas Adams");
+            message = bookOne.AddAuthor("Douglas Adams");
+            Console.WriteLine(message);
+            bookOne.CopyrightDate = DateTime.Parse("01/01/1980");
+            // Add the book
+            hitchhikersSeries.Add(bookOne);
+
+            // Create next book
+            Book bookLast = new Book("So Long and Thanks for All the Fish", "Funny books about space travel", 400);
+            // bookLast.authors.Add("Douglas Adams");
+            message = bookLast.AddAuthor("Douglas Adams");
+            Console.WriteLine(message);
+            // bookLast.title = "So Long and Thanks for All the Fish";
+
+            // Can create a book inline
+            Book SecondBook = new Book("Restaurant at the End", "Funny book about space travel");
         }
 
         public static void WorkWithRegEx()
@@ -61,7 +110,7 @@ namespace AhbcWeekFour
             Console.WriteLine("Book genre");
             Console.WriteLine("1 = sci fi, 2 = romance, 3 = western, 4 = personalDevelopment, 5 = nonFiction, 6 = mystery");
             // Gets the string, parses it to an int, casts the int to a BookGenre, and stores it into userBookGenre
-            BookGenre userBookGenre = (BookGenre) int.Parse(Console.ReadLine());
+            BookGenre userBookGenre = (BookGenre)int.Parse(Console.ReadLine());
 
             bookCollection.Add(bookTitle, userBookGenre);
 
@@ -145,7 +194,7 @@ namespace AhbcWeekFour
             {
                 Console.WriteLine("Boo");
             }
-            
+
 
             // Reverses a string
             string longString = "asdfghjkl";
@@ -204,7 +253,7 @@ namespace AhbcWeekFour
             }
 
 
-            
+
 
         }
     }
