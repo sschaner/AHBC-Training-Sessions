@@ -9,6 +9,8 @@ namespace AhbcWeekFour
     {
         static void Main(string[] args)
         {
+            Customer customerOne = new Customer("Steve", "Schaner");
+            Console.WriteLine(customerOne.CustomerGreeting());
             
             
             Console.ReadKey();

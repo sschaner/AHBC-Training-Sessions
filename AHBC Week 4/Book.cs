@@ -8,42 +8,11 @@ namespace AhbcWeekFour
 {
     public class Book
     {
-        // This exists but is invisible
-        //public Book()
-        //{
 
-        //}
+        private List<Author> authors = new List<Author>();
 
-        /*
-        // The book must have a title
-        public Book(string title)
-        {
-            // think of this as the class saying "mine." my title = title
-            this.title = title;
-        }
-
-        public Book(string title, string description)
-        {
-            this.title = title;
-            this.description = description;
-        }
-        */
-
-        public Book(string title, string description, int pageCount = 100) // 100 is the default for pageCount
-        {
-            this.title = title;
-            this.description = description;
-            this.pageCount = pageCount;
-            authors = new List<string>(); // <- He does it this way
-        }
-
-        // Having just one constructor makes it so they have to use that constructor
-
-        // Everything that is in the Book class should be in the Book class.
-
-        // Attributes (characteristics of the object)
-        private List<string> authors = new List<string>(); // Nothing wrong with this but doesn't need to be in both.
-        public string description;
+        public string Description { get; set; }
+        public double Price { get; set; }
 
         private string title; // field
         public string Title
@@ -52,19 +21,15 @@ namespace AhbcWeekFour
             set { title = value; } // public void set(string value)
         }
 
-        // This is the same as above
-        //  public string Title { get; set; } <-- use auto properties on your job. Not in Bootcamp
-
-        public double MyProperty { get; set; }
-
         private int pageCount;
         public int PageCount
         {
             get { return pageCount; }
-            set {
+            set
+            {
                 if (value < 1)
                 {
-                    throw new ArgumentException("Page count must be greater than 0.");
+                    throw new ArgumentException("Page count must be greater than 0");
                 }
                 pageCount = value;
             }
@@ -82,35 +47,27 @@ namespace AhbcWeekFour
             get { return (DateTime.Now - copyrightDate).TotalDays; }
         }
 
-        private double salesCommisionPercentage = 7;
-
-        public double SalesCommisionPercentage
+        private double salesCommissionPercentage = 7;
+        public double SalesComissionPercentage
         {
-            get { return salesCommisionPercentage; }
+            get { return salesCommissionPercentage; }
         }
 
-        /*
-         * This is what's behind the scenes
-        public string get()
+        public Book(string title, string description, int pageCount = 100)
         {
-            return title;
+            Title = title;
+            Description = description;
+            PageCount = pageCount;
         }
 
-        public void set(string value)
-        {
-            title = value;
-        }
-        */
-
-
-
-        public string AddAuthor(string authorName)
+        // Added the default parameter so we wouldn't break old code
+        public string AddAuthor(string authorName, string emailAddress = "test@test.com")
         {
             string message = "";
 
             if (string.IsNullOrEmpty(authorName))
             {
-                message = "Author cannot be empty.";
+                message = "Author can not be empty";
                 return message;
             }
 
@@ -118,21 +75,52 @@ namespace AhbcWeekFour
             Regex regex = new Regex(pattern);
             if (regex.IsMatch(authorName) == false)
             {
-                message = "Author can only contain letters and spaces.";
+                message = "Author can only contain letters and spaces";
                 return message;
             }
 
             message = "The author has been added to the book.";
-            authors.Add(authorName);
+            Author authorToAdd = new Author(authorName, emailAddress);
+
+            authors.Add(authorToAdd);
+
             return message;
         }
 
         public string GetBookDisplayText()
         {
-            string output = $"{title} was written by {authors.FirstOrDefault()} with {pageCount} pages.";
+            string output =
+                $"{title} was written by {authors.FirstOrDefault()} with {pageCount} pages.";
 
             return output;
         }
+
+        /*
+        public Book(string title)
+        {
+            this.title = title;
+        }
+      
+        public Book(string title,string description)
+        {
+            this.title = title;
+            this.description = description;
+        }
+        */
+
+        /*
+        public string get()
+        {
+            return title;
+        }
+        public void set(string value)
+        {
+            title = value;
+        }
+        */
+
+
     }
+
 
 }
