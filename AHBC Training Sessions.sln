@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AHBC Week 3", "AHBC Week 3\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AhbcWeekFour", "AHBC Week 4\AhbcWeekFour.csproj", "{38D84A4A-FF43-4C74-8A5D-93B1F6785F84}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AhbcWeekFive", "AhbcWeekFive\AhbcWeekFive.csproj", "{7FA5A317-B885-46D1-AB40-9886F0F3BA23}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AhbcWeekFive", "AhbcWeekFive\AhbcWeekFive.csproj", "{7FA5A317-B885-46D1-AB40-9886F0F3BA23}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollectionManager", "CollectionManager\CollectionManager.csproj", "{59F8F1F0-19CB-4DDD-A800-9E0347229D89}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{7FA5A317-B885-46D1-AB40-9886F0F3BA23}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7FA5A317-B885-46D1-AB40-9886F0F3BA23}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7FA5A317-B885-46D1-AB40-9886F0F3BA23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59F8F1F0-19CB-4DDD-A800-9E0347229D89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59F8F1F0-19CB-4DDD-A800-9E0347229D89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59F8F1F0-19CB-4DDD-A800-9E0347229D89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59F8F1F0-19CB-4DDD-A800-9E0347229D89}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

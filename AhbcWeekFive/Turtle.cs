@@ -12,5 +12,10 @@ namespace AhbcWeekFive
         {
             throw new NotImplementedException();
         }
+
+        bool IEggLayer.LayEggs()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

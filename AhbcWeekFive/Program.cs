@@ -55,6 +55,19 @@ namespace AhbcWeekFive
             ExportDataManager.ExportData("data", new DataRepository { DatabaseName = "ThatTable", ServerName = "ThisServer" });
         }
 
+        public static int ValidateInteger(string input)
+        {
+            int validInt = -1;
+            bool isValid = int.TryParse(input, out validInt);
+            CheckRange(input);
+            return validInt;
+        }
+
+        public static bool CheckRange(string input)
+        {
+            return true;
+        }
+
         public static void DisplayEggLayerStuff(IEggLayer eggLayer)
         {
             if (eggLayer.LayEggs() == true)

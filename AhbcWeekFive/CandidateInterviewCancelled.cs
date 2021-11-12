@@ -4,8 +4,14 @@ using System.Text;
 
 namespace AhbcWeekFive
 {
-    public class CandidateInterviewCancelled
+    public class CandidateInterviewCacelled : InterviewEmailBase
     {
+        public bool IsRescheduled { get; set; }
+
+        public virtual void ScheduleInterview()
+        {
+            // do stuff
+        }
 
     }
 }
