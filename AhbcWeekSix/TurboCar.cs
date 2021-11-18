@@ -6,7 +6,7 @@ namespace AhbcWeekSix
 {
     public class TurboCar : Car
     {
-        public override void Acceleration(double accelerationRate)
+        public override void Accelerate(double accelerationRate)
         {
             CurrentAcceleration = CurrentAcceleration + accelerationRate * 2;
         }
