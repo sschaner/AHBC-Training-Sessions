@@ -61,7 +61,7 @@ namespace MockAssessmentTwo
             return returnValue;
         }
 
-        public  string TryToCatchDarthVader(string value)
+        public string TryToCatchDarthVader(string value)
         {
             try
             {
