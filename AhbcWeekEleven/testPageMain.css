@@ -1,0 +1,70 @@
+body {
+  background-color: antiquewhite;
+}
+
+#main-header,
+.location-container {
+  text-align: center;
+}
+
+#main-header {
+  color: red;
+}
+
+.img-container img {
+  max-width: 70%;
+  display: block;
+  margin: 1rem auto;
+  border-radius: 10px;
+}
+
+@media screen and (min-width: 600px) {
+  .img-container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .img-container img {
+    height: 100px;
+  }
+}
+
+.vehicle-specs {
+  margin: auto;
+}
+
+thead {
+  background-color: gray;
+  color: red;
+}
+
+tbody {
+  background-color: beige;
+  text-align: center;
+}
+
+#buy-them {
+  display: block;
+  margin: 1rem auto;
+  padding: 0.5rem;
+  text-transform: uppercase;
+}
+
+#buy-them:hover {
+  cursor: pointer;
+  background: red;
+  color: white;
+}
+
+#buy-them a {
+  text-decoration: none;
+}
+
+#location-header {
+  margin-bottom: 0px;
+}
+
+.location-container ul {
+  list-style-type: none;
+  margin-top: 2px;
+}

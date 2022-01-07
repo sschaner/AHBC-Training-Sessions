@@ -2,68 +2,62 @@
 <html>
   <head>
     <title>Test Page</title>
+    <link rel="stylesheet" href="testPageMain.css" />
   </head>
 
-  <body style="background-color: antiquewhite">
-    <h1 style="color: red">Different Tesla Vehicles</h1>
-    <hr />
-    <div style="display: flex">
-      <img
-        src="assets/Tesla-Model-S.jpg"
-        style="width: 33%; height: 70%; border: 5px solid rgb(58, 57, 57)"
-        alt="A red Tesla Model 3"
-      />
-      <img
-        src="assets/Tesla-Model-3.jpg"
-        style="width: 33%; height: 70%; border: 5px solid rgb(58, 57, 57)"
-        alt="A red Tesla Model 3"
-      />
-      <img
-        src="assets/Tesla-Model-X.jpg"
-        style="width: 33%; height: 70%; border: 5px solid rgb(58, 57, 57)"
-        alt="A red Tesla Model 3"
-      />
-    </div>
+  <body>
+    <header>
+      <h1 id="main-header">Different Tesla Vehicles</h1>
+    </header>
 
-    <table>
-      <thead style="background-color: gray; color: red">
-        <th>Vehicle</th>
-        <th>Range (mi)</th>
-        <th>Top Speed (mph)</th>
-        <th>0-60 MPH (sec)</th>
-      </thead>
-      <tbody style="background-color: beige; text-align: center">
-        <tr>
-          <td>Model S</td>
-          <td>375</td>
-          <td>155</td>
-          <td>3.1</td>
-        </tr>
-        <tr>
-          <td>Model 3</td>
-          <td>334</td>
-          <td>145</td>
-          <td>4.2</td>
-        </tr>
-        <tr>
-          <td>Model X</td>
-          <td>332</td>
-          <td>155</td>
-          <td>3.8</td>
-        </tr>
-      </tbody>
-    </table>
-    <p style="margin-top: 2px">
-      You can buy them
-      <a href="https://www.tesla.com/" target="_blank">here</a>
-      .
-    </p>
+    <main>
+      <div class="img-container">
+        <img src="assets/Tesla-Model-S.jpg" alt="A red Tesla Model 3" />
+        <img src="assets/Tesla-Model-3.jpg" alt="A red Tesla Model 3" />
+        <img src="assets/Tesla-Model-X.jpg" alt="A red Tesla Model 3" />
+      </div>
+      <hr />
 
-    <h3 style="margin-bottom: 0">Supercharger Locations</h3>
-    <ul style="list-style-type: square; margin-top: 3px">
-      <li>Muskegon, MI</li>
-      <li>Walker, MI</li>
-      <li>HudsonVille, MI</li>
-    </ul>
+      <table class="vehicle-specs">
+        <thead>
+          <th>Vehicle</th>
+          <th>Range (mi)</th>
+          <th>Top Speed (mph)</th>
+          <th>0-60 MPH (sec)</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Model S</td>
+            <td>375</td>
+            <td>155</td>
+            <td>3.1</td>
+          </tr>
+          <tr>
+            <td>Model 3</td>
+            <td>334</td>
+            <td>145</td>
+            <td>4.2</td>
+          </tr>
+          <tr>
+            <td>Model X</td>
+            <td>332</td>
+            <td>155</td>
+            <td>3.8</td>
+          </tr>
+        </tbody>
+      </table>
+      <button id="buy-them">
+        <a href="https://www.tesla.com/" target="_blank">Buy here</a>
+      </button>
+
+      <div class="location-container">
+        <h3 id="location-header">Supercharger Locations</h3>
+        <ul>
+          <li>Muskegon, MI</li>
+          <li>Walker, MI</li>
+          <li>HudsonVille, MI</li>
+        </ul>
+      </div>
+    </main>
   </body>
 </html>

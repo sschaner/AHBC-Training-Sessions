@@ -1,0 +1,33 @@
+body {
+  background-color: darksalmon;
+}
+
+tr {
+  text-align: center;
+  color: darkred;
+}
+
+td {
+  border: 2px solid blue;
+}
+
+.yellow-bold {
+  color: yellow;
+  font-weight: bold;
+}
+
+.grey-border {
+  border: 2px grey solid;
+}
+
+.white-square {
+  color: white;
+}
+
+.cyan-disc {
+  color: cyan;
+}
+
+.name-cell {
+  font-style: italic;
+}
