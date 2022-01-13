@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32002.261
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BootCampWebApp", "BootCampWebApp\BootCampWebApp.csproj", "{C30F6FC3-AC91-437C-AD22-062E5D6FFC0D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C30F6FC3-AC91-437C-AD22-062E5D6FFC0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C30F6FC3-AC91-437C-AD22-062E5D6FFC0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C30F6FC3-AC91-437C-AD22-062E5D6FFC0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C30F6FC3-AC91-437C-AD22-062E5D6FFC0D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0E5B86D2-3440-4A70-B9F2-B3CFDCAA3FDE}
+	EndGlobalSection
+EndGlobal
