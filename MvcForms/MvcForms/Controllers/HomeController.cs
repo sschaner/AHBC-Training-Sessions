@@ -12,10 +12,12 @@ namespace MvcForms.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private MessageViewModel _messageViewModel;
 
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
+            _messageViewModel = new MessageViewModel();
         }
 
         [HttpGet]
@@ -55,6 +57,53 @@ namespace MvcForms.Controllers
                     break;
             }
             return View(favorites);
+        }
+
+        [HttpPost]
+        public IActionResult Process(FormViewModel model, string submit)
+        {
+            switch (submit)
+            {
+                case "Greet":
+                    return RedirectToAction("Greet", new { fullName = model.FullName });
+                case "Reverse":
+                    return RedirectToAction("Reverse", new { fullName = model.FullName });
+                case "NoVowels":
+                    return RedirectToAction("NoVowels", new { fullName = model.FullName });
+                case "OnlyVowels":
+                    return RedirectToAction("OnlyVowels", new { fullName = model.FullName });
+            }
+            return View();
+        }
+
+        public IActionResult Greet(string fullName)
+        {
+            _messageViewModel.Messsage = $"Hello {fullName}. How are you?";
+            return View("Message", _messageViewModel);
+        }
+
+        public IActionResult Reverse(string fullName)
+        {
+            char[] array = fullName.ToArray();
+            Array.Reverse(array);
+            _messageViewModel.Messsage = $".{new string(array)} olleH";
+            return View("Message", _messageViewModel);
+        }
+
+        public IActionResult NoVowels(string fullName)
+        {
+            string vowels = "aeiou";
+            string name = new string(fullName.Where(x => !vowels.Contains(x)).ToArray());
+            _messageViewModel.Messsage = $"Hll {name}.";
+            return View("Message", _messageViewModel);
+        }
+
+        public IActionResult OnlyVowels(string fullName)
+        {
+            string vowels = "aeiou";
+            string name = new string(fullName.Where(x => vowels.Contains(x)).ToArray());
+            _messageViewModel.Messsage = $"eo {name}.";
+            return View("Message", _messageViewModel);
         }
 
         public IActionResult Privacy()
